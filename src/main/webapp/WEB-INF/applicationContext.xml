@@ -10,4 +10,6 @@
     
     <bean id="service" class="webfest.silence4aqualife.RecordService" destroy-method="closeConnection">
     </bean>
+    
+    
 </beans>

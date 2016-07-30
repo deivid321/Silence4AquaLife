@@ -4,6 +4,9 @@ body {
 #map{
     height: 100%;
 }
+#map2{
+    height: 400px;
+}
 @media (min-width:768px) { 
     /* centered navigation */
     .navbar-brand {

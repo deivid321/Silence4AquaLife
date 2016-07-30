@@ -24,4 +24,5 @@
     <welcome-file-list>
         <welcome-file>redirect.jsp</welcome-file>
     </welcome-file-list>
+    <!--<property name="alternatedocroot_1" value="from=/images/* dir=/var/webapp" /> -->
 </web-app>

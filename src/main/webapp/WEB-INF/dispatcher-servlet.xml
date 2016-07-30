@@ -19,7 +19,7 @@
     <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
-               <!-- <prop key="index.htm">indexController</prop> -->
+                <!-- <prop key="index.htm">indexController</prop> -->
             </props>
         </property>
     </bean>
@@ -34,15 +34,24 @@
           class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           p:prefix="/WEB-INF/jsp/"
           p:suffix=".jsp" />
-<!--
-    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
-        <property name="converters">
-            <list>
-                <bean class="com.deivydas.voroneckis.housingservice.springmvc.converters.RoomConverter"/>
-                <bean class="com.deivydas.voroneckis.housingservice.springmvc.converters.StudentConverter"/>
-            </list>
-        </property>
+    
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+        <!-- setting maximum upload size -->
+        <!--<property name="maxUploadSize" value="99999999999999999"> 
+        </property> -->
+
     </bean>
-  -->  
+    <!--
+      <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+          <property name="converters">
+              <list>
+                  <bean class="com.deivydas.voroneckis.housingservice.springmvc.converters.RoomConverter"/>
+                  <bean class="com.deivydas.voroneckis.housingservice.springmvc.converters.StudentConverter"/>
+              </list>
+          </property>
+      </bean>
+    -->  
     
 </beans>

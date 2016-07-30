@@ -7,68 +7,84 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>New room form</title>
+        <title>New record form</title>
     </head>
     <body>
         <jsp:include page="header.jsp" />
-        <div id="container">
-            <div class="col-md-4"></div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h1 class="panel-title"><spring:message code="lbl.submitNewRoom"/></h1> 
+            <div id="container">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h1 class="panel-title">Add new record</h1> 
+                        </div>
+                        <div class="panel-body">
+                            <form:form method="POST" commandName="record" role="form" action="new.htm" enctype="multipart/form-data">
+                                <form:hidden path="id"/>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" required="required">Name:</label>
+                                    <div class="col-md-7">
+                                        <form:input type="text" path="name" class="form-control"/>
+                                    </div>
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-4 control-label">Surname:</label>
+                                    <div class="col-md-7">
+                                        <form:input type="text" path="surname" class="form-control"/>
+                                    </div>
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-4 control-label">Longtitude:</label>
+                                    <div class="col-md-7">
+                                        <form:input type="number" id="lng" path="lng" class="form-control" step="any" />
+                                    </div>
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-4 control-label">Latitude:</label>
+                                    <div class="col-md-7">
+                                        <form:input type="number" id="lat" path="lat" class="form-control" step="any"/>
+                                    </div>
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-4"></div>
+
+                                    <!-- <form enctype="multipart/form-data"> -->
+                                    <label class="col-md-4 control-label">File1 to upload:</label>
+                                    <div class="col-md-7"><input type="file" name="file"></div>
+                                    <!--      File1 to upload: 
+        
+                                          File2 to upload: <input type="file" name="file">
+                                    <!-- </form>  -->
+                                    <div class="col-md-8">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input id="save" type="submit" class="form-control" value="Save">
+                                    </div>
+                                </div>
+                            </form:form>
+                        </div>
                     </div>
-                    <div class="panel-body">
-                        <form:form class="form-horizontal row-border" commandName="room" role="form" method="POST" action="${pageContext.request.contextPath}/rooms.htm">
-                            <form:hidden path="${room.id}"/>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" required="required"><spring:message code="lbl.street"/>:</label>
-                                <div class="col-md-7">
-                                    <form:input type="text" path="street" class="form-control"/>
-                                    <form:errors path="street" cssClass="error" />
-                                </div>
-                                <div class="col-md-1"></div>
-                                <label class="col-md-4 control-label"><spring:message code="lbl.houseNumber"/></label>
-                                <div class="col-md-7">
-                                    <form:input type="number" path="houseNumber" class="form-control" value="${room.houseNumber}"/>
-                                    <form:errors path="houseNumber" cssClass="error" />
-                                </div>
-                                <div class="col-md-1"></div>
-                                <label class="col-md-4 control-label"><spring:message code="lbl.roomNumber"/></label>
-                                <div class="col-md-7">
-                                    <form:input type="number" path="roomNumber" class="form-control" value="${room.roomNumber}"/>
-                                    <form:errors path="roomNumber" cssClass="error" />
-                                </div>
-                                <div class="col-md-1"></div>
-                                <label class="col-md-4 control-label"><spring:message code="lbl.maxStudents"/></label>
-                                <div class="col-md-7">
-                                    <form:input class="form-control" type="number" path="maxStudents" name="maxStudents" min="1" max="3" value="${room.maxStudents}"/>
-                                    <form:errors path="maxStudents" cssClass="error" />
-                                </div>
-                                <div class="col-md-1"></div>
-                                <div class="clearfix visible-md-block"></div>
-                                <label class="col-md-4 control-label"><spring:message code="lbl.free"/></label>
-                                <div class="col-md-5">
-                                    <form:checkbox path="free"/>
-                                </div>
-                                <div class="col-md-3"></div>
-                                <div class="clearfix md-block"></div>
-                                <label class="col-md-4 control-label">Select student</label>
-                                <div class="col-md-7">
-                                    <form:select class="form-control" path="studentList">
-                                        <form:options items="${students}" itemValue="id" itemLabel="name"/>
-                                    </form:select>
-                                </div>
-                                <div class="col-md-1"></div>
-                                <div class="col-md-4"></div>
-                                <div class="col-md-3">
-                                    <input id="save" type="submit" class="form-control" value="<spring:message code="lbl.save"/>">
-                                </div>
-                            </div>
-                        </form:form>
-                    </div>
+                    <div id="map2"></div>
                 </div>
+
             </div>
-        </div>
+
+
     </body>
+    <script type="text/javascript"> //46.2123078, 6.1522267
+        var map = L.map('map2').setView([46.2123078, 6.1522267], 13);
+
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        
+        var mark = L.marker([46.2123078, 6.1522267], {draggable: 'true'}).addTo(map);
+        
+      //  document.getElementById('lng').value = mark.getLatlng().lng;
+     //   document.getElementById('lat').value = mark.getLatlng().lat;
+
+        function onMapClick(e) {
+            mark.setLatLng(e.latlng);
+            document.getElementById('lng').value = e.latlng.lng;
+            document.getElementById('lat').value = e.latlng.lat;
+            map.setView(e.latlng);
+        }
+        map.on('click', onMapClick);
+    </script>
 </html>
