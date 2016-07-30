@@ -1,0 +1,55 @@
+body {
+    text-align: center;
+}
+@media (min-width:768px) { 
+    /* centered navigation */
+    .navbar-brand {
+        float: left;
+    }
+    .nav.navbar-nav {
+        float: left;
+    }
+    .nav.navbar-nav {
+        clear: left;
+        float: left;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        left: 50%;
+        text-align: center;
+    }
+    .nav.navbar-nav > li {
+        position: relative;
+        right: 50%;
+    }
+    .nav.navbar-nav li {
+        text-align: left;
+    }
+
+    .nav.navbar-nav li a {
+        text-align: center;
+        color: #FFFF33;
+    }
+
+    .nav.navbar-nav li a:focus,
+    .nav.navbar-nav li a:hover {
+        background-color: black;
+        color:#FFFF00;
+    }
+}
+
+.jumbotron{
+    max-height: 400px;
+    padding: 0px;
+    background-color: #ffff99;
+}
+
+.container-fluid{
+    background-color: #cc0033;
+}
+
+.error{
+    color:red;
+}
+
+
