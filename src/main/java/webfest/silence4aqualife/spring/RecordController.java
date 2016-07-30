@@ -35,8 +35,12 @@ public class RecordController {
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public ModelAndView getRecords() {
         List<Record> ls = service.getRecordsList();
+        double lng, lat;
+        lng = 46.20738;
+        lat = 6.15591;
+
         System.out.println("yra");
-        return new ModelAndView("index", "records", service.getRecordsList());
+        return new ModelAndView("index", "records", lat).addObject("lng", lng);
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.GET)

@@ -19,6 +19,9 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
+        <link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.css" />
+        <script src="https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.js"></script>
+
         <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/custom.css">
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -28,10 +31,10 @@
             <div class="container-fluid">
                 <ul class="nav navbar-nav">
                     <li><a class="navbar-brand" href="<c:url value="/index.htm"/>">Home</a></li>
-                    <li><a class="navbar-brand" href="<c:url value="/rooms.htm"/>">Motivation</a></li>
-                    <li><a class="navbar-brand" href="<c:url value="/students.htm"/>">Process</a></li>
-                    <li><a class="navbar-brand" href="<c:url value="/contacts.htm"/>">Archive</a></li>
-                    <li><a class="navbar-brand" href="<c:url value="/contacts.htm"/>">Add record</a></li>
+                    <li><a class="navbar-brand" href="<c:url value="/motivation.htm"/>">Motivation</a></li>
+                    <li><a class="navbar-brand" href="<c:url value="/process.htm"/>">Process</a></li>
+                    <li><a class="navbar-brand" href="<c:url value="/archive.htm"/>">Archive</a></li>
+                    <li><a class="navbar-brand" href="<c:url value="/new.htm"/>">Add record</a></li>
                 </ul>
             </div>
         </nav>

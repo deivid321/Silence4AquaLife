@@ -8,15 +8,32 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Welcome to Spring Web MVC project</title>
+        <link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.css" />
+        <script src="https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.js"></script>
     </head>
 
     <body>
-        <%@include file="header.jsp" %>
-        <p>Hello! This is the default welcome page for a Spring Web MVC project.</p>
-        <p><i>To display a different welcome page for this project, modify</i>
-            <tt>index.jsp</tt> <i>, or create your own welcome page then change
-                the redirection in</i> <tt>redirect.jsp</tt> <i>to point to the new
-                welcome page and also update the welcome-file setting in</i>
-            <tt>web.xml</tt>.</p>
+        <div>
+            <%@include file="header.jsp" %>
+        </div>
+        ${records} ${lng}
+        <div id="map"></div>
+        <script type="text/javascript">
+    var map = L.map('map').setView([${lng}, ${records}], 13);
+
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    var popup = L.marker([${lng}, ${records}]).addTo(map);
+
+    function onMapClick(e) {
+        alert("You clicked the map at " + e.latlng);
+        self.location = "http://www.example.com";
+
+    }
+    popup.on('click', onMapClick);
+        </script>
+
     </body>
 </html>
