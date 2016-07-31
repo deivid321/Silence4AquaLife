@@ -1,0 +1,64 @@
+body {
+    text-align: center;
+}
+#map{
+    height: 100%;
+}
+#map2{
+    height: 400px;
+}
+#map3{
+    height: 500px;
+}
+@media (min-width:768px) { 
+    /* centered navigation */
+    .navbar-brand {
+        float: left;
+    }
+    .nav.navbar-nav {
+        float: left;
+    }
+    .nav.navbar-nav {
+        clear: left;
+        float: left;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        left: 50%;
+        text-align: center;
+    }
+    .nav.navbar-nav > li {
+        position: relative;
+        right: 50%;
+    }
+    .nav.navbar-nav li {
+        text-align: left;
+    }
+
+    .nav.navbar-nav li a {
+        text-align: center;
+        color: #FFFFFF;
+    }
+
+    .nav.navbar-nav li a:focus,
+    .nav.navbar-nav li a:hover {
+        background-color: #BFEFFF;
+        color:#0D4F8B;
+    }
+}
+
+.jumbotron{
+    max-height: 400px;
+    padding: 0px;
+    background-color: #ffff99;
+}
+
+.container-fluid{
+    background-color: #0D4F8B;
+}
+
+.error{
+    color:red;
+}
+
+
