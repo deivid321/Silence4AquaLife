@@ -20,10 +20,8 @@
             <div class="col-sm-8" >
                 <h1 id="motivation">Motivation</h1>
                 <div align="left">
-                    <h1 id="motivation">Motivation</h1>
                     <div class="figure">
-                        <img src="Turtle.jpeg" title="An see turtle" alt="A nice one" width="50%" height="50%"/>
-                        <p class="caption">A nice one</p>
+                        <img src="Turtle.jpeg"  style="float: right; width: 40%; height: 40%" />
                     </div>
                     <p>Over the past decades, environmental sciences and media have put increasing focus on <em>visible</em> water pollution. We typically show emotional reactions to images depicting tons of rubbish flowing around in the oceans or whales who have parts of cars in their bodies.</p>
                     <p>However, what receives particularly little attention is <em>noise</em> pollution. Just recently, a conference on the <a href="http://an2016.org/">(link is external)</a> the effects of noise on aquatic life has come into place trying to address this problem. Today, these are still not sufficiently understood, but scientists assume that anthropogenic noise is responsible to a large degree for whale strandings, deaths and mis-navigations of other animals as well all over the world. This noise comes especially from large ships, but also low frequency sonar used for underwater communication (e.g. with submarines). There are also studies showing similar effects on inland waters (<cite>The impacts of power boating and water skiing on lakes and reservoirs, Mosisch and Arthington, 1998</cite>). Our project has two parts. First, we want to raise awareness about the issue of noise pollution of water. Second, we want to combine this idea with the re-use of old smartphones.</p>
