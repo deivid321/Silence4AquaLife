@@ -43,9 +43,14 @@
                                     </div>
                                     <div class="col-md-1"></div>
                                     <div class="col-md-4"></div>
-
+                                     <div class="col-md-12">
+                                    </div>   
                                     <!-- <form enctype="multipart/form-data"> -->
-                                    <label class="col-md-4 control-label">File1 to upload:</label>
+                                    <label class="col-md-4 control-label">Audio to upload:</label>
+                                    <div class="col-md-7"><input type="file" name="file"></div>
+                                     <div class="col-md-12">
+                                    </div>
+                                    <label class="col-md-4 control-label">CSV to upload:</label>
                                     <div class="col-md-7"><input type="file" name="file"></div>
                                     <!--      File1 to upload: 
         

@@ -16,23 +16,38 @@
         <div>
             <%@include file="header.jsp" %>
         </div>
-        ${records} ${lng}
         <div id="map"></div>
-        <script type="text/javascript">
-    var map = L.map('map').setView([${lng}, ${records}], 13);
 
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+        <script type="text/javascript"> //46.2123078, 6.1522267
+            var ls = ${records};
 
-    var popup = L.marker([${lng}, ${records}]).addTo(map);
+            var map = L.map('map').setView([46.2123078, 6.1522267], 4);
 
-    function onMapClick(e) {
-        alert("You clicked the map at " + e.latlng);
-        self.location = "http://www.example.com";
+            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            var i = 0;
+            while (i < ls.length) {
+                var id = ls[i];
+                i++;
+                var lng = ls[i];
+                i++;
+                var lat = ls[i];
+                i++;
+                var el = L.marker([lat, lng], {title:id.toString()}).addTo(map);
+                
+                el.on('click', onMapClick);;              
+            }
 
-    }
-    popup.on('click', onMapClick);
+            //var popup = L.marker([46.2123078, 6.1522267], {title:'-1'}).addTo(map);
+
+            function onMapClick(e) {
+                alert("You clicked the map at " + e.latlng);
+                window.open("info/"+this.options.title+".htm");
+                //self.location = "http://www.example.com";
+            }
+           // popup.on('click', onMapClick);
         </script>
 
     </body>

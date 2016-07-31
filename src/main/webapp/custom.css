@@ -7,6 +7,9 @@ body {
 #map2{
     height: 400px;
 }
+#map3{
+    height: 500px;
+}
 @media (min-width:768px) { 
     /* centered navigation */
     .navbar-brand {
@@ -34,13 +37,13 @@ body {
 
     .nav.navbar-nav li a {
         text-align: center;
-        color: #FFFF33;
+        color: #FFFFFF;
     }
 
     .nav.navbar-nav li a:focus,
     .nav.navbar-nav li a:hover {
-        background-color: black;
-        color:#FFFF00;
+        background-color: #BFEFFF;
+        color:#0D4F8B;
     }
 }
 
@@ -51,7 +54,7 @@ body {
 }
 
 .container-fluid{
-    background-color: #cc0033;
+    background-color: #0D4F8B;
 }
 
 .error{
