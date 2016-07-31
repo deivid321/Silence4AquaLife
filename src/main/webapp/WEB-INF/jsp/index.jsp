@@ -21,7 +21,7 @@
         <script type="text/javascript"> //46.2123078, 6.1522267
             var ls = ${records};
 
-            var map = L.map('map').setView([46.2123078, 6.1522267], 4);
+            var map = L.map('map').setView([46.2123078, 6.1522267], 7);
 
             L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

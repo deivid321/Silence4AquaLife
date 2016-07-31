@@ -74,7 +74,12 @@ public class RecordController {
         //return model;
         return "motivation";
     }
-
+    @RequestMapping(value = "/archive", method = RequestMethod.GET)
+    public String getArchive() {
+        //ModelAndView model = new ModelAndView("recordForm", "record", new Record());
+        //return model;
+        return "archive";
+    }
     @RequestMapping(value = "/process", method = RequestMethod.GET)
     public String getProcess() {
         //ModelAndView model = new ModelAndView("recordForm", "record", new Record());
