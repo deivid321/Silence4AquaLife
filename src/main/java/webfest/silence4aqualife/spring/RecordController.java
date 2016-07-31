@@ -8,12 +8,15 @@ package webfest.silence4aqualife.spring;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
 import java.util.logging.Logger;
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import org.hibernate.validator.internal.util.logging.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.request;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -37,7 +40,7 @@ public class RecordController {
 
     @Autowired
     private RecordService service;
-    
+
     @Autowired
     private ServletContext servletContext;
 
@@ -65,9 +68,29 @@ public class RecordController {
         return model;
     }
 
+    @RequestMapping(value = "/motivation", method = RequestMethod.GET)
+    public String getMotivation() {
+        //ModelAndView model = new ModelAndView("recordForm", "record", new Record());
+        //return model;
+        return "motivation";
+    }
+
+    @RequestMapping(value = "/process", method = RequestMethod.GET)
+    public String getProcess() {
+        //ModelAndView model = new ModelAndView("recordForm", "record", new Record());
+        //return model;
+        return "process";
+    }
+    @RequestMapping(value = "/help", method = RequestMethod.GET)
+    public String getHelp() {
+        //ModelAndView model = new ModelAndView("recordForm", "record", new Record());
+        //return model;
+        return "help";
+    }
+
     @RequestMapping(value = "info/{id}", method = RequestMethod.GET)
     public ModelAndView recordInfo(@PathVariable long id) {
-        return new ModelAndView("recordInfo", "record", service.getRecord(id));
+        return new ModelAndView("recordInfo", "record", service.getRecord(id)).addObject("root", servletContext.getRealPath("/") + "data\\");
     }
 
     /**
@@ -79,23 +102,44 @@ public class RecordController {
         String message = "";
         for (int i = 0; i < 2; i++) {
             MultipartFile file = files[i];
-            String name = record.getId() +"_"+ record.getName() +"_"+ record.getSurname() + i;
+            //file.get
+            String name = record.getId() + "_" + record.getName() + "_" + record.getSurname() + i;
+            if (i == 0) {
+                    name = name + ".mp3";
+                    record.setAudioName(name);
+                } else {
+                    name = name + ".csv";
+                    record.setCsvName(name);
+                }
+            
             try {
                 byte[] bytes = file.getBytes();
                 String str = new String(bytes, "UTF-8"); // for UTF-8 encoding
-                // Creating the directory to store file
+
+                //String filePath = servletContext.getRealPath("/") + "data\\" + name;
+                String filePath = "C:\\Users\\vdeiv\\Documents\\NetBeansProjects\\Silence4AquaLife-spring\\src\\main\\webapp\\data\\"+name;
+                File dest = new File(filePath);
+                try {
+                    file.transferTo(dest);
+                } catch (IllegalStateException e) {
+                    e.printStackTrace();
+                    return "File uploaded failed:" + name;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return "File uploaded failed:" + name;
+                }
+               // return "File uploaded:" + orgName;
+                /*
                 String rootPath = null;
-                //rootPath = System.getProperty("catalina.home");
-                //rootPath = servletContext.getContextPath();
-                rootPath = System.getProperty("user.dir");
+                rootPath = System.getProperty("catalina.home");
                 System.out.println(rootPath);
-                File dirs = new File(servletContext.getContextPath());
-                System.out.println(dirs.getAbsolutePath().toString());
+                //File dirs = new File(servletContext.getContextPath());
+                //System.out.println(request.getServletContext());
                 File dir = new File(rootPath + File.separator + "tmpFiles");
+                //File dir = new File(rootPath);
                 if (!dir.exists()) {
                     dir.mkdirs();
                 }
-
                 // Create the file on server
                 File serverFile = null;
                 if (i == 0) {
@@ -111,13 +155,15 @@ public class RecordController {
                         new FileOutputStream(serverFile));
                 stream.write(bytes);
                 stream.close();
-
+                */
                 message = message + "You successfully uploaded file=" + name + "";
+               // return "redirect:/rooms.htm";
             } catch (Exception e) {
                 return "You failed to upload " + name + " => " + e.getMessage();
             }
         }
-        return message;
+        //return "redirect:/info/"+record.getId()+".htm";
+        return message + "<a href="+"http://localhost:8080/Silence4AquaLife-spring/info/"+record.getId()+".htm" + ">Get Info</a>";
     }
     /*
     @RequestMapping(method = RequestMethod.POST)

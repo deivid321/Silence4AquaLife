@@ -43,7 +43,6 @@
             //var popup = L.marker([46.2123078, 6.1522267], {title:'-1'}).addTo(map);
 
             function onMapClick(e) {
-                alert("You clicked the map at " + e.latlng);
                 window.open("info/"+this.options.title+".htm");
                 //self.location = "http://www.example.com";
             }

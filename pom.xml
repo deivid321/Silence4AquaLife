@@ -173,7 +173,7 @@
     </dependencies>
 
     <build>
-        <finalName>Silence4AquaLife-web</finalName>
+        <finalName>Silence4AquaLife</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

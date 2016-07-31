@@ -36,6 +36,7 @@
                     <li><a class="navbar-brand" href="<c:url value="/process.htm"/>">Process</a></li>
                     <li><a class="navbar-brand" href="<c:url value="/archive.htm"/>">Archive</a></li>
                     <li><a class="navbar-brand" href="<c:url value="/new.htm"/>">Add record</a></li>
+                    <li><a class="navbar-brand" href="<c:url value="/help.htm"/>">Help</a></li>
                 </ul>
             </div>
         </nav>
