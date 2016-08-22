@@ -1,4 +1,4 @@
-Cern webfest project - Silence4AquaLife
+# Cern webfest project - Silence4AquaLife
 
 Over the past decades, environmental sciences and media have put increasing focus on <em>visible</em> water pollution. We typically show emotional reactions to images depicting tons of rubbish flowing around in the oceans or whales who have parts of cars in their bodies.
 
