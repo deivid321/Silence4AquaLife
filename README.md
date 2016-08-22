@@ -11,6 +11,8 @@ Today, smartphones are thrown away often prior to their actual end of life for v
 ![alt tag](https://github.com/deivid321/Silence4AquaLife/blob/master/pictures/main.jpg)
 ![alt tag](https://github.com/deivid321/Silence4AquaLife/blob/master/pictures/details.png)
 
+Created java backend application using spring framework as the platform for visualising measurements.
+
 Recommended links:
 http://an2016.org/
 http://www.nmfs.noaa.gov/pr/pdfs/acoustics/shipping_noise.pdf
